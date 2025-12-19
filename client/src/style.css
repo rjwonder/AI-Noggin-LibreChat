@@ -2920,279 +2920,60 @@ html {
 }
 /* ============================================
    AI NOGGIN BRAND THEME FOR LIBRECHAT
-   v5 - FLAT DARK MODE (NO BOXES)
+   v6 - KEEP IT SIMPLE
    
-   Brand Colors:
-   - Cream Background: #F8F7F3
-   - Robot Blue (accent): #0986C2
-   - Navy (text): #0F314E
-   
-   Dark Mode Colors:
-   - Sidebar: #1A3650 (solid)
-   - Main area: #0F2537 (solid, EVERYTHING)
-   - Text/buttons: #0986C2 (robot blue)
-   
-   REPLACE any previous AI Noggin CSS with this
-   Add to the END of client/src/style.css
+   Light Mode: Just change send button
+   Dark Mode: Just change colors, don't break layout
    ============================================ */
 
 /* ============================================
-   ☀️ LIGHT MODE - Send button robot blue
+   ☀️ LIGHT MODE
    ============================================ */
 
-button[class*="bg-green"],
-[class*="bg-green-500"],
-[class*="bg-green-600"],
-button[class*="rounded-full"][class*="bg-"]:not(.dark *) {
+/* Send button - robot blue */
+button[class*="bg-green"]:not(.dark *) {
   background-color: #0986C2 !important;
-  color: #FFFFFF !important;
 }
 
 /* ============================================
-   🌙 DARK MODE - FLAT & SIMPLE
+   🌙 DARK MODE
    ============================================ */
 
-/* === GLOBAL RESET: Make EVERYTHING dark navy === */
-.dark,
-.dark body,
-.dark #root,
-.dark #root > *,
-.dark #root > * > *,
-.dark #root > * > * > *,
-.dark main,
-.dark main *,
-.dark [class*="bg-"],
-.dark [class*="background"],
-.dark div,
-.dark section,
-.dark article,
-.dark aside,
-.dark header,
-.dark footer,
-.dark nav {
-  background-color: #0F2537 !important;
-  background: #0F2537 !important;
-}
-
-/* === SIDEBAR OVERRIDE: Lighter navy === */
-.dark nav,
-.dark aside,
-.dark [class*="sidebar"],
-.dark [class*="Sidebar"],
-.dark [class*="side-panel"],
-.dark [class*="left-panel"],
-.dark [class*="nav-container"],
-.dark [class*="w-64"],
-.dark [class*="w-260"],
-.dark [class*="fixed"][class*="left-0"],
-.dark [class*="drawer"],
-.dark [data-side="left"],
-.dark > div > div:first-child {
+/* Sidebar background */
+.dark [class*="bg-gray-900"],
+.dark [class*="bg-gray-850"] {
   background-color: #1A3650 !important;
-  background: #1A3650 !important;
 }
 
-/* Sidebar children - also flat */
-.dark nav *,
-.dark aside *,
-.dark [class*="sidebar"] *,
-.dark [class*="Sidebar"] *,
-.dark [class*="w-64"] * {
-  background-color: transparent !important;
-  background: transparent !important;
-}
-
-/* Sidebar TEXT - Robot Blue */
-.dark nav,
-.dark nav *,
-.dark aside,
-.dark aside *,
-.dark [class*="sidebar"],
-.dark [class*="sidebar"] *,
-.dark [class*="Sidebar"] *,
-.dark [class*="w-64"],
-.dark [class*="w-64"] * {
+/* Sidebar text - robot blue */
+.dark [class*="bg-gray-900"] *,
+.dark [class*="bg-gray-850"] * {
   color: #0986C2 !important;
 }
 
-.dark nav svg,
-.dark aside svg,
-.dark [class*="sidebar"] svg,
-.dark [class*="w-64"] svg {
-  color: #0986C2 !important;
-  fill: #0986C2 !important;
-}
-
-/* Sidebar hover - subtle */
-.dark nav button:hover,
-.dark nav a:hover,
-.dark aside button:hover,
-.dark [class*="sidebar"] button:hover,
-.dark [class*="sidebar"] a:hover,
-.dark [class*="w-64"] button:hover {
-  background-color: rgba(9, 134, 194, 0.2) !important;
-}
-
-/* === MESSAGE BUBBLES - FLAT (no background) === */
-.dark [class*="message"],
-.dark [class*="Message"],
-.dark [class*="markdown"],
-.dark [class*="prose"],
-.dark [class*="rounded-"][class*="px-"],
-.dark [class*="bg-gray-"][class*="rounded"],
-.dark [class*="user-message"],
-.dark [class*="assistant-message"],
-.dark [data-message-author-role] {
-  background-color: transparent !important;
-  background: transparent !important;
-}
-
-/* === THOUGHTS/THINKING - Blend with background === */
-.dark [class*="thinking"],
-.dark [class*="Thinking"],
-.dark [class*="thought"],
-.dark [class*="Thought"] {
+/* Main area background */
+.dark [class*="bg-gray-800"],
+.dark [class*="bg-gray-700"],
+.dark [class*="bg-gray-600"],
+.dark [class*="bg-gray-50"] {
   background-color: #0F2537 !important;
-  background: #0F2537 !important;
+}
+
+/* Main text - cream */
+.dark [class*="bg-gray-800"] *,
+.dark [class*="bg-gray-700"] *,
+.dark main * {
   color: #F8F7F3 !important;
 }
 
-/* === TEXT COLORS - Cream for readability === */
-.dark p,
-.dark span,
-.dark h1, .dark h2, .dark h3, .dark h4, .dark h5, .dark h6,
-.dark li,
-.dark td,
-.dark th,
-.dark label,
-.dark [class*="prose"] *,
-.dark [class*="markdown"] *,
-.dark [class*="message"] p,
-.dark [class*="message"] span,
-.dark [class*="text-"],
-.dark main p,
-.dark main span,
-.dark main div {
-  color: #F8F7F3 !important;
+/* Send button - robot blue */
+.dark button[class*="bg-green"] {
+  background-color: #0986C2 !important;
 }
 
-/* Override sidebar text back to robot blue */
-.dark nav p,
-.dark nav span,
-.dark aside p,
-.dark aside span,
-.dark [class*="sidebar"] p,
-.dark [class*="sidebar"] span {
-  color: #0986C2 !important;
-}
-
-/* === INPUT BOX === */
+/* Input box */
 .dark textarea,
-.dark input[type="text"],
-.dark [class*="textarea"],
-.dark [class*="composer"],
-.dark [contenteditable],
-.dark [class*="ProseMirror"] {
+.dark input[type="text"] {
   background-color: #1A3650 !important;
-  background: #1A3650 !important;
   color: #F8F7F3 !important;
-  border-color: #3A5A7A !important;
-}
-
-.dark textarea::placeholder,
-.dark input::placeholder {
-  color: #8BA5BB !important;
-}
-
-/* === SEND BUTTON - ROBOT BLUE === */
-.dark button[class*="bg-green"],
-.dark [class*="bg-green-500"],
-.dark [class*="bg-green-600"],
-.dark button[class*="rounded-full"][class*="bg-"],
-.dark [class*="send"],
-.dark [class*="submit"],
-.dark button[type="submit"],
-.dark [class*="absolute"][class*="right"][class*="rounded-full"] {
-  background-color: #0986C2 !important;
-  background: #0986C2 !important;
-  color: #FFFFFF !important;
-}
-
-.dark button[class*="bg-green"]:hover,
-.dark button[type="submit"]:hover {
-  background-color: #077AAD !important;
-}
-
-/* === HEADER/TOP BAR === */
-.dark header,
-.dark [class*="header"],
-.dark [class*="Header"],
-.dark [class*="sticky"][class*="top"] {
-  background-color: #0F2537 !important;
-  background: #0F2537 !important;
-  border-color: #1A3650 !important;
-}
-
-/* Agent selector button */
-.dark header button[class*="rounded"],
-.dark [class*="model-select"],
-.dark [class*="endpoint"] {
-  background-color: #0986C2 !important;
-  color: #FFFFFF !important;
-}
-
-/* === DROPDOWNS & MENUS === */
-.dark [class*="dropdown"],
-.dark [class*="Dropdown"],
-.dark [class*="menu"],
-.dark [class*="Menu"],
-.dark [class*="popover"],
-.dark [class*="Popover"],
-.dark [role="menu"],
-.dark [role="listbox"] {
-  background-color: #1A3650 !important;
-  border-color: #3A5A7A !important;
-}
-
-/* === BORDERS - Subtle === */
-.dark [class*="border-"],
-.dark [class*="divide-"] > * {
-  border-color: #1A3650 !important;
-}
-
-/* === SCROLLBARS === */
-.dark ::-webkit-scrollbar {
-  width: 8px;
-  height: 8px;
-}
-
-.dark ::-webkit-scrollbar-track {
-  background: #0F2537;
-}
-
-.dark ::-webkit-scrollbar-thumb {
-  background: #0986C2;
-  border-radius: 4px;
-}
-
-/* === ICONS (non-sidebar) === */
-.dark main svg,
-.dark [class*="message"] svg {
-  color: #8BA5BB !important;
-}
-
-.dark button:hover svg {
-  color: #FFFFFF !important;
-}
-
-/* === FOCUS === */
-.dark :focus-visible {
-  outline: 2px solid #0986C2 !important;
-  outline-offset: 2px;
-}
-
-/* === SELECTION === */
-.dark ::selection {
-  background-color: rgba(9, 134, 194, 0.4);
-  color: #FFFFFF;
 }
