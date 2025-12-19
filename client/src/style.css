@@ -2919,13 +2919,12 @@ html {
   background-color: #F5F5F5;
 }
 /* ============================================
-   AI NOGGIN BRAND CSS v8
+   AI NOGGIN BRAND CSS v9
    LibreChat Customization
    December 19, 2025
    
-   v8 Changes:
-   - FIX: Thoughts badge → blend with background
-   - FIX: Input toolbar (bottom box) → match input area
+   v9 Changes:
+   - NUCLEAR FIX: Thoughts box - hitting every possible gray
    ============================================ */
 
 /* === BRAND COLORS ===
@@ -3010,10 +3009,9 @@ button[class*="bg-blue"],
 }
 
 /* ============================================
-   DARK MODE - Input Area (FIXED in v8)
+   DARK MODE - Input Area
    ============================================ */
 
-/* Main input field */
 .dark input,
 .dark textarea,
 .dark [class*="bg-gray-700"],
@@ -3023,7 +3021,6 @@ button[class*="bg-blue"],
   border-color: #0986C2 !important;
 }
 
-/* Input container/wrapper - the whole input box area */
 .dark [class*="input"],
 .dark [class*="composer"],
 .dark [class*="chat-input"],
@@ -3031,20 +3028,17 @@ button[class*="bg-blue"],
   background-color: #1A3650 !important;
 }
 
-/* Bottom toolbar area (paperclip, mic icons) */
 .dark [class*="bg-gray-100"],
 .dark [class*="bg-gray-200"],
 .dark [class*="bg-gray-300"] {
   background-color: #1A3650 !important;
 }
 
-/* Input area inner containers */
 .dark [class*="rounded"][class*="border"] {
   background-color: #1A3650 !important;
   border-color: #0986C2 !important;
 }
 
-/* Toolbar buttons in input area */
 .dark [class*="input"] button,
 .dark [class*="composer"] button,
 .dark form button:not([type="submit"]) {
@@ -3052,7 +3046,6 @@ button[class*="bg-blue"],
   color: #F8F7F3 !important;
 }
 
-/* Send button stays Robot Blue */
 .dark button[class*="bg-green"],
 .dark button[class*="bg-blue"],
 .dark button[type="submit"],
@@ -3062,51 +3055,95 @@ button[class*="bg-blue"],
 }
 
 /* ============================================
-   DARK MODE - Thoughts Badge (FIXED in v8)
-   Make it INVISIBLE - blend completely
+   DARK MODE - THOUGHTS BOX NUCLEAR OPTION (v9)
+   Target EVERY possible gray that could be the culprit
    ============================================ */
 
-/* Target various possible selectors for thoughts */
+/* Hit all the mid-range grays */
+.dark [class*="bg-gray-500"],
+.dark [class*="bg-gray-600"],
+.dark [class*="bg-gray-700"],
+.dark [class*="bg-gray-750"] {
+  background-color: #0F2537 !important;
+}
+
+/* Target by content area context */
+.dark main [class*="bg-gray"],
+.dark [class*="message"] [class*="bg-gray"],
+.dark [class*="response"] [class*="bg-gray"] {
+  background-color: #0F2537 !important;
+}
+
+/* Thoughts-specific targeting */
 .dark [class*="thoughts"],
 .dark [class*="thinking"],
 .dark [class*="Thoughts"],
-.dark [class*="Thinking"] {
-  background-color: transparent !important;
-  background: transparent !important;
-  border: none !important;
-  border-color: transparent !important;
-  box-shadow: none !important;
-}
-
-/* The thoughts container/wrapper */
+.dark [class*="Thinking"],
 .dark [class*="thought"] {
-  background-color: transparent !important;
-  background: transparent !important;
+  background-color: #0F2537 !important;
+  background: #0F2537 !important;
   border: none !important;
+  border-color: #0F2537 !important;
   box-shadow: none !important;
 }
 
-/* Collapsible/accordion style thoughts */
-.dark details[class*="thought"],
-.dark summary[class*="thought"],
-.dark [data-state][class*="thought"] {
-  background-color: transparent !important;
+/* Target details/summary elements (common for collapsibles) */
+.dark details,
+.dark summary,
+.dark details > div,
+.dark summary + div {
+  background-color: #0F2537 !important;
+  background: #0F2537 !important;
   border: none !important;
 }
 
-/* If it's using a specific icon + text pattern */
-.dark span:has(svg) + span:contains("Thoughts"),
-.dark [class*="flex"][class*="items-center"]:has([class*="thought"]) {
-  background-color: transparent !important;
-  border: none !important;
-}
-
-/* Nuclear option for thoughts - any element containing "Thoughts" text */
+/* Target any collapsible/accordion patterns */
 .dark [class*="collapsible"],
 .dark [class*="expandable"],
-.dark [class*="toggle"][class*="content"] {
-  background-color: transparent !important;
+.dark [class*="accordion"],
+.dark [data-state],
+.dark [aria-expanded] {
+  background-color: #0F2537 !important;
   border: none !important;
+}
+
+/* Target rounded containers that might be the thoughts box */
+.dark [class*="rounded-lg"][class*="bg-"],
+.dark [class*="rounded-md"][class*="bg-"],
+.dark [class*="rounded-xl"][class*="bg-"] {
+  background-color: #0F2537 !important;
+}
+
+/* Target flex containers in message area */
+.dark [class*="flex"][class*="gap"][class*="bg-"] {
+  background-color: #0F2537 !important;
+}
+
+/* If it's a button-like toggle */
+.dark button[class*="bg-gray"],
+.dark [role="button"][class*="bg-gray"] {
+  background-color: #0F2537 !important;
+}
+
+/* Slate colors (Tailwind also uses slate-) */
+.dark [class*="bg-slate-600"],
+.dark [class*="bg-slate-700"],
+.dark [class*="bg-slate-800"] {
+  background-color: #0F2537 !important;
+}
+
+/* Zinc colors (another Tailwind gray palette) */
+.dark [class*="bg-zinc-600"],
+.dark [class*="bg-zinc-700"],
+.dark [class*="bg-zinc-800"] {
+  background-color: #0F2537 !important;
+}
+
+/* Neutral colors */
+.dark [class*="bg-neutral-600"],
+.dark [class*="bg-neutral-700"],
+.dark [class*="bg-neutral-800"] {
+  background-color: #0F2537 !important;
 }
 
 /* ============================================
