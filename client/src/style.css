@@ -2920,113 +2920,226 @@ html {
 }
 /* ============================================
    AI NOGGIN BRAND THEME FOR LIBRECHAT
+   v3 - LIGHT MODE DEFAULT + DARK MODE STYLING
    
-   Colors extracted from logo:
+   Brand Colors:
    - Cream Background: #F8F7F3
    - Robot Blue (accent): #0986C2
-   - Navy (text): #0F314E
+   - Navy (text/dark bg): #0F314E
    
-   Add this to the END of client/src/style.css
+   STRATEGY: No prefers-color-scheme media queries!
+   This forces LIGHT MODE as default for all users.
+   Dark mode only activates when user clicks toggle
+   (which adds .dark class to HTML element)
+   
+   REPLACE any previous AI Noggin CSS with this
+   Add to the END of client/src/style.css
    ============================================ */
 
-/* ☀️ LIGHT MODE - Warm cream theme */
-:root {
-  /* Background colors - cream family */
-  --gray-20: #FDFCFA;
-  --gray-50: #F8F7F3;      /* Main cream from logo */
-  --gray-100: #F0EFE9;
-  --gray-200: #E5E4DE;
-  --gray-300: #D1D0CA;
-  
-  /* Text colors - navy family */
-  --gray-500: #3D5A73;
-  --gray-600: #264059;
-  --gray-700: #0F314E;     /* Main navy from logo */
-  --gray-800: #0A2338;
-  --gray-900: #061620;
-  
-  /* Accent/interactive - robot blue */
-  --gizmo-gray-500: #0986C2;
-  --gizmo-gray-600: #077AAD;
-  
-  /* Surface colors */
-  --surface-primary: #F8F7F3;
-  --surface-secondary: #FFFFFF;
-  --surface-tertiary: #F0EFE9;
-  
-  /* Text on surfaces */
-  --text-primary: #0F314E;
-  --text-secondary: #3D5A73;
-  --text-tertiary: #5A7A94;
+/* ============================================
+   ☀️ LIGHT MODE (DEFAULT FOR ALL USERS)
+   ============================================ */
+
+/* Send/Enter button - Robot Blue */
+:root button[class*="submit"],
+:root button[class*="send"],
+:root button[type="submit"],
+:root [class*="send-button"],
+:root [data-testid*="send"],
+:root .absolute.rounded-full,
+:root [class*="bg-green"] {
+  background-color: #0986C2 !important;
+  color: #FFFFFF !important;
 }
 
-/* 🌙 DARK MODE - Deep navy with warm accents */
-.dark {
-  /* Background colors - deep navy family */
-  --gray-20: #0D1F2D;
-  --gray-50: #0F2537;
-  --gray-100: #132B41;
-  --gray-200: #1A3650;
-  --gray-300: #264059;
-  
-  /* Text colors - cream/light family */
-  --gray-500: #A8B5C0;
-  --gray-600: #C5CED6;
-  --gray-700: #E0E6EB;
-  --gray-800: #F0F3F5;
-  --gray-900: #F8F7F3;     /* Cream for headings */
-  
-  /* Accent/interactive - robot blue (slightly brighter for dark mode) */
-  --gizmo-gray-500: #1A9FD9;
-  --gizmo-gray-600: #0986C2;
-  
-  /* Surface colors */
-  --surface-primary: #0F2537;
-  --surface-secondary: #132B41;
-  --surface-tertiary: #1A3650;
-  
-  /* Text on surfaces */
-  --text-primary: #F8F7F3;
-  --text-secondary: #C5CED6;
-  --text-tertiary: #A8B5C0;
+:root button[class*="submit"]:hover,
+:root button[class*="send"]:hover,
+:root button[type="submit"]:hover {
+  background-color: #077AAD !important;
 }
 
 /* ============================================
-   COMPONENT-SPECIFIC OVERRIDES
+   🌙 DARK MODE (Only when user toggles)
+   Uses .dark class - NOT media queries!
    ============================================ */
 
-/* Sidebar styling */
+/* SIDEBAR - Robot Blue */
+.dark nav,
 .dark [class*="sidebar"],
-.dark nav {
-  background-color: #0D1F2D;
+.dark aside,
+.dark [class*="nav-"],
+.dark [class*="side-panel"],
+.dark .bg-gray-900,
+.dark .bg-gray-850,
+.dark [class*="drawer"] {
+  background-color: #0986C2 !important;
+  background: #0986C2 !important;
 }
 
-/* Chat bubble accents */
-[class*="assistant"] {
-  border-left: 3px solid #0986C2;
+/* Sidebar text - white for contrast on robot blue */
+.dark nav *,
+.dark [class*="sidebar"] *,
+.dark aside *,
+.dark [class*="nav-"] a,
+.dark [class*="nav-"] span,
+.dark [class*="nav-"] p,
+.dark [class*="nav-"] svg {
+  color: #FFFFFF !important;
 }
 
-/* Button hover states */
-button:hover {
-  border-color: #0986C2;
+/* Sidebar hover states - slightly darker blue */
+.dark nav a:hover,
+.dark [class*="sidebar"] a:hover,
+.dark [class*="sidebar"] button:hover {
+  background-color: #077AAD !important;
 }
 
-/* Links */
-a {
-  color: #0986C2;
+/* MAIN CHAT AREA - Dark Navy */
+.dark main,
+.dark [class*="conversation"],
+.dark [class*="chat-container"],
+.dark [class*="main-content"],
+.dark [class*="messages"],
+.dark .flex-1,
+.dark [role="main"] {
+  background-color: #0F2537 !important;
+  background: #0F2537 !important;
 }
 
-a:hover {
-  color: #077AAD;
+/* Overall body/app background - dark navy */
+.dark body,
+.dark #root,
+.dark [class*="app"],
+.dark .bg-gray-800,
+.dark .bg-gray-900:not(nav):not([class*="sidebar"]) {
+  background-color: #0F2537 !important;
+}
+
+/* SEND BUTTON IN DARK MODE - Navy Blue */
+.dark button[class*="submit"],
+.dark button[class*="send"],
+.dark button[type="submit"],
+.dark [class*="send-button"],
+.dark [data-testid*="send"],
+.dark .absolute.rounded-full,
+.dark [class*="bg-green"] {
+  background-color: #0F314E !important;
+  color: #FFFFFF !important;
+}
+
+.dark button[class*="submit"]:hover,
+.dark button[class*="send"]:hover,
+.dark button[type="submit"]:hover {
+  background-color: #1A4A6E !important;
+}
+
+/* Input area background - slightly lighter navy */
+.dark [class*="input-area"],
+.dark [class*="composer"],
+.dark textarea,
+.dark [class*="text-input"] {
+  background-color: #1A3650 !important;
+  color: #F8F7F3 !important;
+  border-color: #264059 !important;
+}
+
+/* Chat message bubbles */
+.dark [class*="message"] {
+  background-color: #1A3650 !important;
+}
+
+/* Text colors in dark mode - cream/white */
+.dark main p,
+.dark main span,
+.dark main div,
+.dark [class*="message"] p,
+.dark [class*="message"] span,
+.dark [class*="prose"] {
+  color: #F8F7F3 !important;
+}
+
+/* Agent name/title in center */
+.dark h1,
+.dark h2,
+.dark [class*="title"] {
+  color: #F8F7F3 !important;
+}
+
+/* Placeholder text */
+.dark input::placeholder,
+.dark textarea::placeholder {
+  color: #A8B5C0 !important;
+}
+
+/* Links in dark mode */
+.dark a:not(nav a):not([class*="sidebar"] a) {
+  color: #1A9FD9 !important;
+}
+
+.dark a:not(nav a):not([class*="sidebar"] a):hover {
+  color: #3DB8ED !important;
+}
+
+/* Header bar - dark navy to match main area */
+.dark header,
+.dark [class*="header"] {
+  background-color: #0F2537 !important;
+  border-bottom: 1px solid #1A3650 !important;
+}
+
+/* Agent selector button in header - robot blue accent */
+.dark [class*="agent"] button,
+.dark header button[class*="agent"] {
+  background-color: #0986C2 !important;
+  color: #FFFFFF !important;
+}
+
+/* Dropdown menus */
+.dark [class*="dropdown"],
+.dark [class*="menu"],
+.dark [class*="popover"],
+.dark [role="menu"] {
+  background-color: #1A3650 !important;
+  border: 1px solid #264059 !important;
 }
 
 /* Selection highlight */
-::selection {
-  background-color: rgba(9, 134, 194, 0.3);
+.dark ::selection {
+  background-color: rgba(9, 134, 194, 0.4);
+  color: #FFFFFF;
 }
 
-/* Focus rings - accessibility */
-:focus-visible {
+/* Focus rings - robot blue */
+.dark :focus-visible {
   outline: 2px solid #0986C2;
   outline-offset: 2px;
+}
+
+/* Scrollbar styling for dark mode */
+.dark ::-webkit-scrollbar {
+  width: 8px;
+}
+
+.dark ::-webkit-scrollbar-track {
+  background: #0F2537;
+}
+
+.dark ::-webkit-scrollbar-thumb {
+  background: #0986C2;
+  border-radius: 4px;
+}
+
+.dark ::-webkit-scrollbar-thumb:hover {
+  background: #077AAD;
+}
+
+/* Right sidebar icons (if visible) */
+.dark [class*="right-panel"],
+.dark [class*="tool-panel"] {
+  background-color: #0F2537 !important;
+}
+
+.dark [class*="right-panel"] svg,
+.dark [class*="tool-panel"] svg {
+  color: #A8B5C0 !important;
 }
