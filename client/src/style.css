@@ -2919,14 +2919,13 @@ html {
   background-color: #F5F5F5;
 }
 /* ============================================
-   AI NOGGIN BRAND CSS v7
+   AI NOGGIN BRAND CSS v8
    LibreChat Customization
    December 19, 2025
    
-   Strategy: Minimal targeted approach + accent colors
-   - NO wildcards (learned from v5 disaster)
-   - Target specific Tailwind bg-gray-XXX classes
-   - Add accent colors back (missing from v6)
+   v8 Changes:
+   - FIX: Thoughts badge → blend with background
+   - FIX: Input toolbar (bottom box) → match input area
    ============================================ */
 
 /* === BRAND COLORS ===
@@ -2941,7 +2940,6 @@ html {
    LIGHT MODE (Default)
    ============================================ */
 
-/* Main background */
 body,
 main,
 [class*="bg-white"],
@@ -2949,14 +2947,12 @@ main,
   background-color: #F8F7F3 !important;
 }
 
-/* Text color */
 body,
 main,
 p, span, div {
   color: #0F314E;
 }
 
-/* Accent elements */
 button[class*="bg-green"],
 button[class*="bg-blue"],
 [class*="bg-green-500"],
@@ -2968,7 +2964,6 @@ button[class*="bg-blue"],
    DARK MODE - Backgrounds
    ============================================ */
 
-/* Main content area */
 .dark body,
 .dark main,
 .dark [class*="bg-gray-900"],
@@ -2976,7 +2971,6 @@ button[class*="bg-blue"],
   background-color: #0F2537 !important;
 }
 
-/* Sidebar area */
 .dark nav,
 .dark aside,
 .dark [class*="bg-gray-850"],
@@ -2986,10 +2980,9 @@ button[class*="bg-blue"],
 }
 
 /* ============================================
-   DARK MODE - Text Colors (THE MISSING PIECE!)
+   DARK MODE - Text Colors
    ============================================ */
 
-/* Sidebar text → Robot Blue */
 .dark nav,
 .dark nav *,
 .dark aside,
@@ -2999,7 +2992,6 @@ button[class*="bg-blue"],
   color: #0986C2 !important;
 }
 
-/* Main content text → Cream */
 .dark main p,
 .dark main span,
 .dark main div,
@@ -3008,7 +3000,6 @@ button[class*="bg-blue"],
   color: #F8F7F3 !important;
 }
 
-/* Bot/Agent name and descriptions → Cream */
 .dark h1,
 .dark h2,
 .dark h3,
@@ -3019,10 +3010,10 @@ button[class*="bg-blue"],
 }
 
 /* ============================================
-   DARK MODE - Input & Buttons
+   DARK MODE - Input Area (FIXED in v8)
    ============================================ */
 
-/* Input box */
+/* Main input field */
 .dark input,
 .dark textarea,
 .dark [class*="bg-gray-700"],
@@ -3032,7 +3023,36 @@ button[class*="bg-blue"],
   border-color: #0986C2 !important;
 }
 
-/* Send button → Robot Blue */
+/* Input container/wrapper - the whole input box area */
+.dark [class*="input"],
+.dark [class*="composer"],
+.dark [class*="chat-input"],
+.dark form[class*="stretch"] {
+  background-color: #1A3650 !important;
+}
+
+/* Bottom toolbar area (paperclip, mic icons) */
+.dark [class*="bg-gray-100"],
+.dark [class*="bg-gray-200"],
+.dark [class*="bg-gray-300"] {
+  background-color: #1A3650 !important;
+}
+
+/* Input area inner containers */
+.dark [class*="rounded"][class*="border"] {
+  background-color: #1A3650 !important;
+  border-color: #0986C2 !important;
+}
+
+/* Toolbar buttons in input area */
+.dark [class*="input"] button,
+.dark [class*="composer"] button,
+.dark form button:not([type="submit"]) {
+  background-color: transparent !important;
+  color: #F8F7F3 !important;
+}
+
+/* Send button stays Robot Blue */
 .dark button[class*="bg-green"],
 .dark button[class*="bg-blue"],
 .dark button[type="submit"],
@@ -3042,17 +3062,57 @@ button[class*="bg-blue"],
 }
 
 /* ============================================
+   DARK MODE - Thoughts Badge (FIXED in v8)
+   Make it INVISIBLE - blend completely
+   ============================================ */
+
+/* Target various possible selectors for thoughts */
+.dark [class*="thoughts"],
+.dark [class*="thinking"],
+.dark [class*="Thoughts"],
+.dark [class*="Thinking"] {
+  background-color: transparent !important;
+  background: transparent !important;
+  border: none !important;
+  border-color: transparent !important;
+  box-shadow: none !important;
+}
+
+/* The thoughts container/wrapper */
+.dark [class*="thought"] {
+  background-color: transparent !important;
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+
+/* Collapsible/accordion style thoughts */
+.dark details[class*="thought"],
+.dark summary[class*="thought"],
+.dark [data-state][class*="thought"] {
+  background-color: transparent !important;
+  border: none !important;
+}
+
+/* If it's using a specific icon + text pattern */
+.dark span:has(svg) + span:contains("Thoughts"),
+.dark [class*="flex"][class*="items-center"]:has([class*="thought"]) {
+  background-color: transparent !important;
+  border: none !important;
+}
+
+/* Nuclear option for thoughts - any element containing "Thoughts" text */
+.dark [class*="collapsible"],
+.dark [class*="expandable"],
+.dark [class*="toggle"][class*="content"] {
+  background-color: transparent !important;
+  border: none !important;
+}
+
+/* ============================================
    DARK MODE - Message Bubbles
    ============================================ */
 
-/* User messages */
-.dark [class*="bg-gray-100"],
-.dark [class*="bg-gray-200"] {
-  background-color: #1A3650 !important;
-  color: #F8F7F3 !important;
-}
-
-/* Assistant messages - blend with background */
 .dark [class*="bg-gray-50"],
 .dark [class*="markdown"] {
   background-color: transparent !important;
@@ -3060,16 +3120,7 @@ button[class*="bg-blue"],
 }
 
 /* ============================================
-   DARK MODE - Thoughts Badge (make invisible)
-   ============================================ */
-.dark [class*="thoughts"],
-.dark [class*="thinking"] {
-  background-color: #0F2537 !important;
-  border-color: #0F2537 !important;
-}
-
-/* ============================================
-   DARK MODE - Links & Interactive Elements
+   DARK MODE - Links & Icons
    ============================================ */
 
 .dark a {
@@ -3080,16 +3131,11 @@ button[class*="bg-blue"],
   color: #F8F7F3 !important;
 }
 
-/* Icons in sidebar */
 .dark nav svg,
 .dark aside svg {
   color: #0986C2 !important;
   fill: #0986C2 !important;
 }
-
-/* ============================================
-   DARK MODE - Footer
-   ============================================ */
 
 .dark footer,
 .dark footer * {
