@@ -2919,12 +2919,15 @@ html {
   background-color: #F5F5F5;
 }
 /* ============================================
-   AI NOGGIN BRAND CSS v9
+   AI NOGGIN BRAND CSS v10
    LibreChat Customization
    December 19, 2025
    
-   v9 Changes:
-   - NUCLEAR FIX: Thoughts box - hitting every possible gray
+   v10 Changes:
+   - PRECISION FIX: Thoughts box using exact class names from DOM
+     - bg-presentation
+     - bg-surface-tertiary
+     - border-border-medium
    ============================================ */
 
 /* === BRAND COLORS ===
@@ -3034,7 +3037,7 @@ button[class*="bg-blue"],
   background-color: #1A3650 !important;
 }
 
-.dark [class*="rounded"][class*="border"] {
+.dark [class*="rounded"][class*="border"]:not(.rounded-3xl) {
   background-color: #1A3650 !important;
   border-color: #0986C2 !important;
 }
@@ -3055,95 +3058,46 @@ button[class*="bg-blue"],
 }
 
 /* ============================================
-   DARK MODE - THOUGHTS BOX NUCLEAR OPTION (v9)
-   Target EVERY possible gray that could be the culprit
+   DARK MODE - THOUGHTS BOX (v10 PRECISION FIX)
+   Exact classes from DOM inspection
    ============================================ */
 
-/* Hit all the mid-range grays */
-.dark [class*="bg-gray-500"],
-.dark [class*="bg-gray-600"],
-.dark [class*="bg-gray-700"],
-.dark [class*="bg-gray-750"] {
-  background-color: #0F2537 !important;
-}
-
-/* Target by content area context */
-.dark main [class*="bg-gray"],
-.dark [class*="message"] [class*="bg-gray"],
-.dark [class*="response"] [class*="bg-gray"] {
-  background-color: #0F2537 !important;
-}
-
-/* Thoughts-specific targeting */
-.dark [class*="thoughts"],
-.dark [class*="thinking"],
-.dark [class*="Thoughts"],
-.dark [class*="Thinking"],
-.dark [class*="thought"] {
+/* The sticky header container */
+.dark .bg-presentation {
   background-color: #0F2537 !important;
   background: #0F2537 !important;
-  border: none !important;
+}
+
+/* The actual thoughts content box */
+.dark .bg-surface-tertiary {
+  background-color: #0F2537 !important;
+  background: #0F2537 !important;
+}
+
+/* The border around thoughts */
+.dark .border-border-medium {
   border-color: #0F2537 !important;
-  box-shadow: none !important;
 }
 
-/* Target details/summary elements (common for collapsibles) */
-.dark details,
-.dark summary,
-.dark details > div,
-.dark summary + div {
-  background-color: #0F2537 !important;
-  background: #0F2537 !important;
-  border: none !important;
-}
-
-/* Target any collapsible/accordion patterns */
-.dark [class*="collapsible"],
-.dark [class*="expandable"],
-.dark [class*="accordion"],
-.dark [data-state],
-.dark [aria-expanded] {
-  background-color: #0F2537 !important;
-  border: none !important;
-}
-
-/* Target rounded containers that might be the thoughts box */
-.dark [class*="rounded-lg"][class*="bg-"],
-.dark [class*="rounded-md"][class*="bg-"],
-.dark [class*="rounded-xl"][class*="bg-"] {
+/* Also target the group container just in case */
+.dark .group\/thinking-container,
+.dark [class*="thinking-container"] {
   background-color: #0F2537 !important;
 }
 
-/* Target flex containers in message area */
-.dark [class*="flex"][class*="gap"][class*="bg-"] {
+.dark .group\/thinking,
+.dark [class*="group/thinking"] {
   background-color: #0F2537 !important;
 }
 
-/* If it's a button-like toggle */
-.dark button[class*="bg-gray"],
-.dark [role="button"][class*="bg-gray"] {
+/* Target surface classes broadly */
+.dark [class*="bg-surface"] {
   background-color: #0F2537 !important;
 }
 
-/* Slate colors (Tailwind also uses slate-) */
-.dark [class*="bg-slate-600"],
-.dark [class*="bg-slate-700"],
-.dark [class*="bg-slate-800"] {
-  background-color: #0F2537 !important;
-}
-
-/* Zinc colors (another Tailwind gray palette) */
-.dark [class*="bg-zinc-600"],
-.dark [class*="bg-zinc-700"],
-.dark [class*="bg-zinc-800"] {
-  background-color: #0F2537 !important;
-}
-
-/* Neutral colors */
-.dark [class*="bg-neutral-600"],
-.dark [class*="bg-neutral-700"],
-.dark [class*="bg-neutral-800"] {
-  background-color: #0F2537 !important;
+/* Target border classes */
+.dark [class*="border-border"] {
+  border-color: #0F2537 !important;
 }
 
 /* ============================================
