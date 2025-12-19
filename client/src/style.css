@@ -2919,61 +2919,180 @@ html {
   background-color: #F5F5F5;
 }
 /* ============================================
-   AI NOGGIN BRAND THEME FOR LIBRECHAT
-   v6 - KEEP IT SIMPLE
+   AI NOGGIN BRAND CSS v7
+   LibreChat Customization
+   December 19, 2025
    
-   Light Mode: Just change send button
-   Dark Mode: Just change colors, don't break layout
+   Strategy: Minimal targeted approach + accent colors
+   - NO wildcards (learned from v5 disaster)
+   - Target specific Tailwind bg-gray-XXX classes
+   - Add accent colors back (missing from v6)
    ============================================ */
+
+/* === BRAND COLORS ===
+   Cream:        #F8F7F3  (light bg, dark mode text)
+   Robot Blue:   #0986C2  (accent, buttons, sidebar text in dark)
+   Navy:         #0F314E  (light mode text)
+   Dark Navy:    #0F2537  (dark mode main bg)
+   Sidebar Navy: #1A3650  (dark mode sidebar bg)
+=== */
 
 /* ============================================
-   ☀️ LIGHT MODE
+   LIGHT MODE (Default)
    ============================================ */
 
-/* Send button - robot blue */
-button[class*="bg-green"]:not(.dark *) {
+/* Main background */
+body,
+main,
+[class*="bg-white"],
+[class*="bg-gray-50"] {
+  background-color: #F8F7F3 !important;
+}
+
+/* Text color */
+body,
+main,
+p, span, div {
+  color: #0F314E;
+}
+
+/* Accent elements */
+button[class*="bg-green"],
+button[class*="bg-blue"],
+[class*="bg-green-500"],
+[class*="bg-blue-500"] {
   background-color: #0986C2 !important;
 }
 
 /* ============================================
-   🌙 DARK MODE
+   DARK MODE - Backgrounds
    ============================================ */
 
-/* Sidebar background */
+/* Main content area */
+.dark body,
+.dark main,
 .dark [class*="bg-gray-900"],
-.dark [class*="bg-gray-850"] {
-  background-color: #1A3650 !important;
-}
-
-/* Sidebar text - robot blue */
-.dark [class*="bg-gray-900"] *,
-.dark [class*="bg-gray-850"] * {
-  color: #0986C2 !important;
-}
-
-/* Main area background */
-.dark [class*="bg-gray-800"],
-.dark [class*="bg-gray-700"],
-.dark [class*="bg-gray-600"],
-.dark [class*="bg-gray-50"] {
+.dark [class*="bg-gray-800"] {
   background-color: #0F2537 !important;
 }
 
-/* Main text - cream */
-.dark [class*="bg-gray-800"] *,
-.dark [class*="bg-gray-700"] *,
-.dark main * {
+/* Sidebar area */
+.dark nav,
+.dark aside,
+.dark [class*="bg-gray-850"],
+.dark [class*="bg-gray-900"][class*="w-64"],
+.dark [class*="bg-gray-900"][class*="w-260"] {
+  background-color: #1A3650 !important;
+}
+
+/* ============================================
+   DARK MODE - Text Colors (THE MISSING PIECE!)
+   ============================================ */
+
+/* Sidebar text → Robot Blue */
+.dark nav,
+.dark nav *,
+.dark aside,
+.dark aside *,
+.dark [class*="w-64"],
+.dark [class*="w-260"] {
+  color: #0986C2 !important;
+}
+
+/* Main content text → Cream */
+.dark main p,
+.dark main span,
+.dark main div,
+.dark [role="main"],
+.dark [class*="prose"] {
   color: #F8F7F3 !important;
 }
 
-/* Send button - robot blue */
-.dark button[class*="bg-green"] {
-  background-color: #0986C2 !important;
+/* Bot/Agent name and descriptions → Cream */
+.dark h1,
+.dark h2,
+.dark h3,
+.dark [class*="text-2xl"],
+.dark [class*="text-xl"],
+.dark [class*="font-semibold"] {
+  color: #F8F7F3 !important;
 }
+
+/* ============================================
+   DARK MODE - Input & Buttons
+   ============================================ */
 
 /* Input box */
+.dark input,
 .dark textarea,
-.dark input[type="text"] {
+.dark [class*="bg-gray-700"],
+.dark [contenteditable] {
   background-color: #1A3650 !important;
   color: #F8F7F3 !important;
+  border-color: #0986C2 !important;
+}
+
+/* Send button → Robot Blue */
+.dark button[class*="bg-green"],
+.dark button[class*="bg-blue"],
+.dark button[type="submit"],
+.dark [class*="btn-primary"] {
+  background-color: #0986C2 !important;
+  color: #F8F7F3 !important;
+}
+
+/* ============================================
+   DARK MODE - Message Bubbles
+   ============================================ */
+
+/* User messages */
+.dark [class*="bg-gray-100"],
+.dark [class*="bg-gray-200"] {
+  background-color: #1A3650 !important;
+  color: #F8F7F3 !important;
+}
+
+/* Assistant messages - blend with background */
+.dark [class*="bg-gray-50"],
+.dark [class*="markdown"] {
+  background-color: transparent !important;
+  color: #F8F7F3 !important;
+}
+
+/* ============================================
+   DARK MODE - Thoughts Badge (make invisible)
+   ============================================ */
+.dark [class*="thoughts"],
+.dark [class*="thinking"] {
+  background-color: #0F2537 !important;
+  border-color: #0F2537 !important;
+}
+
+/* ============================================
+   DARK MODE - Links & Interactive Elements
+   ============================================ */
+
+.dark a {
+  color: #0986C2 !important;
+}
+
+.dark a:hover {
+  color: #F8F7F3 !important;
+}
+
+/* Icons in sidebar */
+.dark nav svg,
+.dark aside svg {
+  color: #0986C2 !important;
+  fill: #0986C2 !important;
+}
+
+/* ============================================
+   DARK MODE - Footer
+   ============================================ */
+
+.dark footer,
+.dark footer * {
+  color: #0986C2 !important;
+  background-color: transparent !important;
 }
