@@ -2919,217 +2919,67 @@ html {
   background-color: #F5F5F5;
 }
 /* ============================================
-   AI NOGGIN BRAND CSS v10
-   LibreChat Customization
-   December 19, 2025
-   
-   v10 Changes:
-   - PRECISION FIX: Thoughts box using exact class names from DOM
-     - bg-presentation
-     - bg-surface-tertiary
-     - border-border-medium
+   MORE TESTY BRAND CSS
+   LibreChat Customization - Generated: 2025-12-28
+   From RJ's LibreChat Bot Factory
    ============================================ */
 
-/* === BRAND COLORS ===
-   Cream:        #F8F7F3  (light bg, dark mode text)
-   Robot Blue:   #0986C2  (accent, buttons, sidebar text in dark)
-   Navy:         #0F314E  (light mode text)
-   Dark Navy:    #0F2537  (dark mode main bg)
-   Sidebar Navy: #1A3650  (dark mode sidebar bg)
-=== */
-
-/* ============================================
-   LIGHT MODE (Default)
-   ============================================ */
-
-body,
-main,
-[class*="bg-white"],
-[class*="bg-gray-50"] {
+body, main, [class*="bg-white"], [class*="bg-gray-50"] {
   background-color: #F8F7F3 !important;
 }
 
-body,
-main,
-p, span, div {
-  color: #0F314E;
+body, main, p, span, div { color: #eaeef2; }
+
+button[class*="bg-green"], button[class*="bg-blue"], [class*="bg-green-500"], [class*="bg-blue-500"] {
+  background-color: #4780da !important;
 }
 
-button[class*="bg-green"],
-button[class*="bg-blue"],
-[class*="bg-green-500"],
-[class*="bg-blue-500"] {
-  background-color: #0986C2 !important;
+.dark body, .dark main, .dark [class*="bg-gray-900"], .dark [class*="bg-gray-800"] {
+  background-color: #0e0033 !important;
 }
 
-/* ============================================
-   DARK MODE - Backgrounds
-   ============================================ */
-
-.dark body,
-.dark main,
-.dark [class*="bg-gray-900"],
-.dark [class*="bg-gray-800"] {
-  background-color: #0F2537 !important;
+.dark nav, .dark aside, .dark [class*="bg-gray-850"] {
+  background-color: #4780da !important;
 }
 
-.dark nav,
-.dark aside,
-.dark [class*="bg-gray-850"],
-.dark [class*="bg-gray-900"][class*="w-64"],
-.dark [class*="bg-gray-900"][class*="w-260"] {
-  background-color: #1A3650 !important;
-}
+.dark nav, .dark nav *, .dark aside, .dark aside * { color: #4780da !important; }
 
-/* ============================================
-   DARK MODE - Text Colors
-   ============================================ */
-
-.dark nav,
-.dark nav *,
-.dark aside,
-.dark aside *,
-.dark [class*="w-64"],
-.dark [class*="w-260"] {
-  color: #0986C2 !important;
-}
-
-.dark main p,
-.dark main span,
-.dark main div,
-.dark [role="main"],
-.dark [class*="prose"] {
+.dark main p, .dark main span, .dark main div, .dark [role="main"], .dark [class*="prose"] {
   color: #F8F7F3 !important;
 }
 
-.dark h1,
-.dark h2,
-.dark h3,
-.dark [class*="text-2xl"],
-.dark [class*="text-xl"],
-.dark [class*="font-semibold"] {
+.dark h1, .dark h2, .dark h3 { color: #F8F7F3 !important; }
+
+.dark input, .dark textarea, .dark [class*="bg-gray-700"], .dark [contenteditable] {
+  background-color: #4780da !important;
+  color: #F8F7F3 !important;
+  border-color: #4780da !important;
+}
+
+.dark [class*="input"], .dark [class*="composer"], .dark [class*="chat-input"] {
+  background-color: #4780da !important;
+}
+
+.dark [class*="bg-gray-100"], .dark [class*="bg-gray-200"], .dark [class*="bg-gray-300"] {
+  background-color: #4780da !important;
+}
+
+.dark button[class*="bg-green"], .dark button[class*="bg-blue"], .dark button[type="submit"] {
+  background-color: #4780da !important;
   color: #F8F7F3 !important;
 }
 
-/* ============================================
-   DARK MODE - Input Area
-   ============================================ */
+.dark .bg-presentation { background: #0e0033 !important; }
+.dark .bg-surface-tertiary { background: #0e0033 !important; }
+.dark .border-border-medium { border-color: #0e0033 !important; }
+.dark [class*="bg-surface"] { background-color: #0e0033 !important; }
 
-.dark input,
-.dark textarea,
-.dark [class*="bg-gray-700"],
-.dark [contenteditable] {
-  background-color: #1A3650 !important;
-  color: #F8F7F3 !important;
-  border-color: #0986C2 !important;
-}
-
-.dark [class*="input"],
-.dark [class*="composer"],
-.dark [class*="chat-input"],
-.dark form[class*="stretch"] {
-  background-color: #1A3650 !important;
-}
-
-.dark [class*="bg-gray-100"],
-.dark [class*="bg-gray-200"],
-.dark [class*="bg-gray-300"] {
-  background-color: #1A3650 !important;
-}
-
-.dark [class*="rounded"][class*="border"]:not(.rounded-3xl) {
-  background-color: #1A3650 !important;
-  border-color: #0986C2 !important;
-}
-
-.dark [class*="input"] button,
-.dark [class*="composer"] button,
-.dark form button:not([type="submit"]) {
+.dark [class*="bg-gray-50"], .dark [class*="markdown"] {
   background-color: transparent !important;
   color: #F8F7F3 !important;
 }
 
-.dark button[class*="bg-green"],
-.dark button[class*="bg-blue"],
-.dark button[type="submit"],
-.dark [class*="btn-primary"] {
-  background-color: #0986C2 !important;
-  color: #F8F7F3 !important;
-}
-
-/* ============================================
-   DARK MODE - THOUGHTS BOX (v10 PRECISION FIX)
-   Exact classes from DOM inspection
-   ============================================ */
-
-/* The sticky header container */
-.dark .bg-presentation {
-  background-color: #0F2537 !important;
-  background: #0F2537 !important;
-}
-
-/* The actual thoughts content box */
-.dark .bg-surface-tertiary {
-  background-color: #0F2537 !important;
-  background: #0F2537 !important;
-}
-
-/* The border around thoughts */
-.dark .border-border-medium {
-  border-color: #0F2537 !important;
-}
-
-/* Also target the group container just in case */
-.dark .group\/thinking-container,
-.dark [class*="thinking-container"] {
-  background-color: #0F2537 !important;
-}
-
-.dark .group\/thinking,
-.dark [class*="group/thinking"] {
-  background-color: #0F2537 !important;
-}
-
-/* Target surface classes broadly */
-.dark [class*="bg-surface"] {
-  background-color: #0F2537 !important;
-}
-
-/* Target border classes */
-.dark [class*="border-border"] {
-  border-color: #0F2537 !important;
-}
-
-/* ============================================
-   DARK MODE - Message Bubbles
-   ============================================ */
-
-.dark [class*="bg-gray-50"],
-.dark [class*="markdown"] {
-  background-color: transparent !important;
-  color: #F8F7F3 !important;
-}
-
-/* ============================================
-   DARK MODE - Links & Icons
-   ============================================ */
-
-.dark a {
-  color: #0986C2 !important;
-}
-
-.dark a:hover {
-  color: #F8F7F3 !important;
-}
-
-.dark nav svg,
-.dark aside svg {
-  color: #0986C2 !important;
-  fill: #0986C2 !important;
-}
-
-.dark footer,
-.dark footer * {
-  color: #0986C2 !important;
-  background-color: transparent !important;
-}
+.dark a { color: #4780da !important; }
+.dark a:hover { color: #F8F7F3 !important; }
+.dark nav svg, .dark aside svg { color: #4780da !important; fill: #4780da !important; }
+.dark footer, .dark footer * { color: #4780da !important; background-color: transparent !important; }
